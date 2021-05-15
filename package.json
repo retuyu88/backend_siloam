@@ -7,8 +7,13 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
-  "author": "",
+  "author": "Andika Heru Pratama",
   "license": "ISC",
+  "keywords": [
+    "Node.js",
+    "Heroku",
+    "Deployment"
+  ],
   "dependencies": {
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",

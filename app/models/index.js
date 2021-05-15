@@ -17,5 +17,5 @@ const db = {}
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
-db.siloam = require("./siloam.model.js")(sequelize, Sequelize)
+db.siloam = require("./form.model.js")(sequelize, Sequelize)
 module.exports = db
