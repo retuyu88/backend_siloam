@@ -1,6 +1,7 @@
 const express = require("express");
 
 const bodyParser = require("body-parser");
+require('express-group-routes');
 const cors = require("cors");
 
 const app = express();
@@ -19,10 +20,15 @@ app.use(bodyParser.urlencoded({extended: true}))
 const db = require("./app/models")
 db.sequelize.sync()
 //route
-app.get("/",(req,res)=> {
-    res.json({message : "welcome to backend app"});
-});
 
+const form = require('./app/controllers/form.controller');
+
+ 
+app.group("/api/v1", (router) => {
+  
+    router.get('/formdata', form.findAll) // get all form data
+
+})
 //set port, listen for request
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
