@@ -20,7 +20,7 @@ db.Sequelize = Sequelize;
 db.sequelize = sequelize;
  
 //Models/tables
-db.customers = require('../model/formdata.js')(sequelize, Sequelize);
+db.customers = require('../models/formdata.js')(sequelize, Sequelize);
  
  
 module.exports = db;
