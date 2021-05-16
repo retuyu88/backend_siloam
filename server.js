@@ -11,7 +11,6 @@ var corsOption = {
 };
 
 app.use(cors(corsOption));
-
 //parse request of content-type - application/json
 app.use(bodyParser.json());
 //pars request of content-type - application/x-www-form-urlencoded
@@ -22,12 +21,14 @@ db.sequelize.sync()
 //route
 
 const form = require('./app/controllers/form.controller');
-
+app.get('/', (req, res) => {
+    res.send('Hello World!')
+  })
  
 app.group("/api/v1", (router) => {
-  
-    router.get('/formdata', form.findAll) // get all form data
-
+    
+    router.get('/formdata', form.index) // get all form data
+    router.post('/formdata', form.store)
 })
 //set port, listen for request
 const PORT = process.env.PORT || 8080;
