@@ -2,9 +2,12 @@ const models = require('../models')
 const form = models.FormData
 // FETCH all Data
 exports.index = (req, res) => {
-	form.findAll().then(form => {
+	form.findAll().then(data => {
 	  // Send all data to Client
-	  res.send(form);
+	  res.send({
+		message: "success",
+		data
+	})
 	});
 };
 
