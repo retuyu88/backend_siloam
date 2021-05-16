@@ -21,14 +21,19 @@ db.sequelize.sync()
 //route
 
 const form = require('./app/controllers/form.controller');
+const hospital = require('./app/controllers/hospital.controller');
 app.get('/', (req, res) => {
     res.send('Hello World!')
   })
  
 app.group("/api/v1", (router) => {
-    
+    //form API
     router.get('/formdata', form.index) // get all form data
     router.post('/formdata', form.store)
+
+    //hospital API
+    router.get('/hospitals', hospital.index) // get all hospital data
+    
 })
 //set port, listen for request
 const PORT = process.env.PORT || 8080;
