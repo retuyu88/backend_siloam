@@ -6,11 +6,11 @@ const cors = require("cors");
 
 const app = express();
 
-var corsOption = {
-    origin: "http://localhost:8081"
-};
+// var corsOption = {
+//     origin: "http://localhost:8081"
+// };
 
-app.use(cors(corsOption));
+app.use(cors());
 //parse request of content-type - application/json
 app.use(bodyParser.json());
 //pars request of content-type - application/x-www-form-urlencoded
